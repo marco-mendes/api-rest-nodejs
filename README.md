@@ -198,8 +198,9 @@ nodemon ./bin/server.js
 ```
 
 O servidor será iniciado na porta 3000 e voce pode invocar as seguintes rotas:
-http://localhost:3000/
-http://localhost:3000/person
+
+* http://localhost:3000/
+* http://localhost:3000/person
 
 ---
 
