@@ -53,7 +53,6 @@ Agora vamos preparar a configuração de rotas. Teremos duas rotas centrais na n
 
 ```node
 const router = express.Router();
-
 //Rotas
 const index = require('./routes/index');
 const personRoute = require('./routes/personRoute');
