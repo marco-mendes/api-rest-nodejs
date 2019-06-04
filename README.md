@@ -76,7 +76,7 @@ const router = express.Router();
 
 router.get('/', function (req, res, next) {
     res.status(200).send({
-        title: "Node Express API",
+        title: "Minha API em Node.JS",
         version: "0.0.1"
     });
 });
@@ -84,8 +84,53 @@ router.get('/', function (req, res, next) {
 module.exports = router;
 
 ```
+Vamos agora criar o arquivo de rotas para o recurso pessoa, com operações CRUD básicas.
+
+```node
+const express = require('express');
+const router = express.Router();
+const controller = require('../controllers/personController')
+
+router.get('/', controller.get);
+router.get('/:id', controller.getById);
+router.post('/', controller.post);
+router.put('/:id', controller.put);
+router.delete('/:id', controller.delete);
+
+module.exports = router;
+```
+
+Observe que o arquivo acima faz uso de métodos declarados no controlador de pessoas. Crie esse controlador no arquivo personController.js dentro do diretório ./controllers.
 
 
+```node
+
+exports.get = (req, res, next) => {
+    res.status(200).send('Requisição GET recebida com sucesso!');
+};
+
+
+exports.getById = (req, res, next) => {
+    res.status(200).send('Requisição GET recebida com sucesso!');
+};
+
+
+
+exports.post = (req, res, next) => {
+    res.status(201).send('Requisição POST recebida com sucesso!');
+};
+
+
+exports.put = (req, res, next) => {
+    let id = req.params.id;
+    res.status(204).send(`Requisição PUT recebida com sucesso! ${id}`);
+};
+
+exports.delete = (req, res, next) => {
+    let id = req.params.id;
+    res.status(204).send(`Requisição DELETE recebida com sucesso! ${id}`);
+};
+```
 
 
 
@@ -95,3 +140,4 @@ O código gabarito é deixado como referência aqui e pode ser baixado pelo coma
 ```console
 https://github.com/corelioBH/api-rest-nodejs.git
 ```
+
