@@ -22,9 +22,17 @@ Se não estiver instalado, vá até o site http://nodejs.org e siga os passos pa
 Com o Node rodando, vamos instalar o Express. Basta ir até o terminal e digitar:
 
 ```console
-npm install -g express body-parser
+npm install -g express
 ```
 Com o Express, você é capaz de criar aplicações web com simplicidade em Node.Js
+
+**Inicialização do projeto**
+
+Inicialize o seu projeto Node com o comando abaixo, que irá criar o  arquivo package.json. Esse arquivo é o manifesto de dependências do seu projeto Node.Js
+
+```console
+npm init -y
+```
 
 **Criação do arquivo de entrada e declaração das dependências**
 
@@ -38,6 +46,25 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 ```
+
+Agora vamos preparar a configuração de rotas. Teremos duas rotas centrais na nossa API
+* Rota / 
+* Rota /person
+
+```node
+const router = express.Router();
+
+//Rotas
+const index = require('./routes/index');
+const personRoute = require('./routes/personRoute');
+
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+app.use('/', index);
+app.use('/person', personRoute);
+
+module.exports = app;
 
 
 
