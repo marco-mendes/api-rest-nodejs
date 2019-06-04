@@ -37,7 +37,10 @@ npm init -y
 **Criação do arquivo de entrada e declaração das dependências**
 
 Crie um diretório chamado apinodejs e se mova para esse diretório na linha de comando.
-Em seguida. crie um arquivo chamado app.js. Esse arquivo será o nosso ponto de entrada para a execução do código.
+
+Crie um diretório chamado src. Todos os arquivos fonte (js) irão ficar abaixo dessa estrutura.
+
+Em seguida. Crie um arquivo chamado ./apinodejs/src/app.js. Esse arquivo será o nosso ponto de entrada para a execução do código.
 
 Use as seguintes linhas para importar as dependências do nosso projeto.
 
@@ -51,7 +54,7 @@ Agora vamos preparar a configuração de rotas. Teremos duas rotas centrais na n
 * Rota / 
 * Rota /person
 
-Para isso, modifique o arquivo app.js para incluir as linhas abaixo.
+Para isso, modifique o arquivo ./apinodejs/src/app.js para incluir as linhas abaixo.
 
 ```node
 const router = express.Router();
@@ -68,7 +71,7 @@ app.use('/person', personRoute);
 module.exports = app;
 ```
 Vamos agora criar a rota /
-Para isso, crie um diretório chamado routes e crie nele um arquivo index.js com o seguinte conteúdo
+Para isso, crie um diretório chamado routes e crie nele um arquivo index.js com o seguinte conteúdo.
 
 ```node
 const express = require('express');
@@ -100,7 +103,10 @@ router.delete('/:id', controller.delete);
 module.exports = router;
 ```
 
-Observe que o arquivo acima faz uso de métodos declarados no controlador de pessoas. Crie esse controlador no arquivo personController.js dentro do diretório ./controllers.
+
+Observe que o arquivo acima faz uso de métodos declarados no controlador de pessoas. 
+
+Crie esse controlador no arquivo personController.js dentro do diretório ./apinodejs/src/controllers.
 
 
 ```node
@@ -132,7 +138,9 @@ exports.delete = (req, res, next) => {
 };
 ```
 
-Finalmente, crie na raiz do seu projeto um diretorio bin e dentro dele um arquivo chamado server.js
+Vamos agora criar o arquivo que irá rodar o servidor node e um arquivo de configuração para iniciar o serviço.
+
+Crie na raiz do seu projeto um diretorio ./bin e dentro dele um arquivo chamado server.js
 
 ```node
 const app = require('../src/app');
@@ -156,6 +164,28 @@ app.listen(port, function () {
     console.log(`app listening on port ${port}`)
 })
 ```
+
+Na raiz do projeto, crie também o arquivo package.config com o seguinte código.
+
+```json
+{
+  "name": "node-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+
 
 ---
 
