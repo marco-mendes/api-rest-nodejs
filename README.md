@@ -189,7 +189,7 @@ Na raiz do projeto, crie também o arquivo package.config com o seguinte código
 
 Certifique que a estrutura de pastas do seu projeto esteja conforma figura abaixo
 
-https://github.com/corelioBH/api-rest-nodejs/blob/master/bin/estruturaProjetoNode.gif
+<img src="https://github.com/corelioBH/api-rest-nodejs/blob/master/bin/estruturaProjetoNode.gif"/>
 
 
 ---
