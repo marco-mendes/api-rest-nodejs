@@ -51,6 +51,8 @@ Agora vamos preparar a configuração de rotas. Teremos duas rotas centrais na n
 * Rota / 
 * Rota /person
 
+Para isso, modifique o arquivo app.js para incluir as linhas abaixo.
+
 ```node
 const router = express.Router();
 //Rotas
@@ -64,6 +66,26 @@ app.use('/', index);
 app.use('/person', personRoute);
 
 module.exports = app;
+```
+Vamos agora criar a rota /
+Para isso, crie um diretório chamado routes e crie nele um arquivo index.js com o seguinte conteúdo
+
+```node
+const express = require('express');
+const router = express.Router();
+
+router.get('/', function (req, res, next) {
+    res.status(200).send({
+        title: "Node Express API",
+        version: "0.0.1"
+    });
+});
+
+module.exports = router;
+
+```
+
+
 
 
 
