@@ -1,4 +1,4 @@
-# api-rest-nodejs
+# Tutorial de API REST com a plataforma Node.JS
 
 Esse tutorial descreve como criar uma API Restful mínima com o Node.JS.
 
