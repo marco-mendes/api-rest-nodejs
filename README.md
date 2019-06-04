@@ -1,10 +1,7 @@
 # api-rest-nodejs
 
 Esse tutorial descreve como criar uma API Restful mínima com o Node.JS.
-O código gabarito é deixado como referência aqui e pode ser baixado pelo comando abaixo:
-```console
-https://github.com/corelioBH/api-rest-nodejs.git
-```
+
 
 **Verificação do Node**
 
@@ -27,4 +24,26 @@ Com o Node rodando, vamos instalar o Express. Basta ir até o terminal e digitar
 ```console
 npm install -g express body-parser
 ```
-Com o Express, você é capaz de criar aplicações web simples. O comando npm install -g instala o Express globamente no seu sistema. 
+Com o Express, você é capaz de criar aplicações web com simplicidade em Node.Js
+
+**Criação do arquivo de entrada e declaração das dependências**
+
+Crie um diretório chamado apinodejs e se mova para esse diretório na linha de comando.
+Em seguida. crie um arquivo chamado app.js. Esse arquivo será o nosso ponto de entrada para a execução do código.
+
+Use as seguintes linhas para importar as dependências do nosso projeto.
+
+```node
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+```
+
+
+
+---
+
+O código gabarito é deixado como referência aqui e pode ser baixado pelo comando abaixo:
+```console
+https://github.com/corelioBH/api-rest-nodejs.git
+```
